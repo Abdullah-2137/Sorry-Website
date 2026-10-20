@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ur-Latn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sorry 🧸</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blush:#FFE3E8; --blush-2:#FFC9D4; --honey:#E8A94F; --honey-lt:#F6CF8E;
+  --cocoa:#6A3F26; --cocoa-dk:#4A2916; --paper:#FFF7F0; --rose:#E4577A;
+  --font:"Fredoka","Trebuchet MS",system-ui,sans-serif;
+  --hand:"Caveat","Segoe Script","Comic Sans MS",cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--cocoa-dk);background:var(--blush);line-height:1.6;overflow-x:hidden;
+  background-image:radial-gradient(var(--blush-2) 2px,transparent 2.5px);background-size:34px 34px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+section{max-width:880px;margin:0 auto;padding:64px 22px}
+h2{font-family:var(--hand);font-size:clamp(2.2rem,6vw,3.2rem);color:var(--cocoa);text-align:center;margin-bottom:28px;line-height:1.1}
+
+/* floating hearts */
+#sky{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+#sky span{position:absolute;bottom:-40px;animation:rise linear forwards;opacity:.7}
+@keyframes rise{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+main{position:relative;z-index:1}
+
+/* hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;padding-top:30px}
+.hero h1{font-family:var(--hand);font-size:clamp(3.4rem,13vw,6.5rem);line-height:1;color:var(--cocoa)}
+.hero p{max-width:30ch;font-size:1.15rem}
+.hint{font-size:.9rem;opacity:.75}
+.scroll{margin-top:14px;display:inline-block;background:var(--cocoa);color:var(--paper);padding:12px 26px;border-radius:999px;text-decoration:none;font-weight:500;transition:transform .2s,background .2s}
+.scroll:hover,.scroll:focus-visible{background:var(--cocoa-dk);transform:translateY(-3px);outline:3px solid var(--honey);outline-offset:3px}
+
+/* teddy */
+.teddy{position:relative;width:230px;height:270px;cursor:pointer;margin-bottom:6px;-webkit-tap-highlight-color:transparent;border:0;background:none}
+.teddy *{position:absolute}
+.teddy .ear{width:62px;height:62px;border-radius:50%;background:var(--honey);top:6px}
+.teddy .ear::after{content:"";width:30px;height:30px;border-radius:50%;background:var(--blush-2);left:16px;top:16px}
+.teddy .ear.l{left:20px}.teddy .ear.r{right:20px}
+.teddy .head{width:170px;height:150px;border-radius:50%;background:var(--honey);left:30px;top:26px;box-shadow:inset -8px -10px 0 rgba(0,0,0,.07)}
+.teddy .eye{width:16px;height:16px;border-radius:50%;background:var(--cocoa-dk);top:58px;overflow:visible}
+.teddy .eye::after{content:"";width:5px;height:5px;background:#fff;border-radius:50%;left:3px;top:3px}
+.teddy .eye.l{left:48px}.teddy .eye.r{right:48px}
+.teddy .tear{width:8px;height:14px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:#8CD3F5;top:78px;opacity:.9;animation:tear 2.4s ease-in infinite}
+.teddy .tear.l{left:52px}.teddy .tear.r{right:52px;animation-delay:1.2s}
+@keyframes tear{0%{transform:translateY(0);opacity:0}15%{opacity:.9}100%{transform:translateY(46px);opacity:0}}
+.teddy .muzzle{width:72px;height:56px;border-radius:50%;background:var(--honey-lt);left:49px;top:82px}
+.teddy .nose{width:24px;height:16px;border-radius:50% 50% 60% 60%;background:var(--cocoa-dk);left:24px;top:8px}
+.teddy .mouth{width:22px;height:11px;border:3px solid var(--cocoa-dk);border-bottom:0;border-radius:22px 22px 0 0;left:25px;top:30px}
+.teddy .cheek{width:20px;height:12px;border-radius:50%;background:var(--rose);opacity:.35;top:98px}
+.teddy .cheek.l{left:34px}.teddy .cheek.r{right:34px}
+.teddy .body{width:150px;height:130px;border-radius:50% 50% 44% 44%;background:var(--honey);left:40px;top:150px;box-shadow:inset -8px -10px 0 rgba(0,0,0,.07)}
+.teddy .belly{width:84px;height:80px;border-radius:50%;background:var(--honey-lt);left:33px;top:30px}
+.teddy .arm{width:44px;height:84px;border-radius:30px;background:var(--honey);top:162px;box-shadow:inset -5px -6px 0 rgba(0,0,0,.07)}
+.teddy .arm.l{left:14px;transform:rotate(22deg)}.teddy .arm.r{right:14px;transform:rotate(-22deg)}
+.teddy .board{width:106px;height:58px;background:var(--paper);border:4px solid var(--cocoa);border-radius:12px;left:62px;top:182px;display:flex;align-items:center;justify-content:center;font-family:var(--hand);font-size:1.9rem;font-weight:700;color:var(--rose);z-index:2;transform:rotate(-4deg)}
+.teddy.happy .tear{display:none}
+.teddy.happy .mouth{border:3px solid var(--cocoa-dk);border-top:0;border-radius:0 0 22px 22px;height:12px;top:30px}
+.teddy.happy{animation:hop .5s ease 3}
+@keyframes hop{50%{transform:translateY(-22px)}}
+.teddy.squish{animation:sq .35s ease}
+@keyframes sq{40%{transform:scale(1.08,.92)}}
+.hugs{font-size:.95rem;font-weight:500;background:var(--paper);border-radius:999px;padding:4px 16px;border:2px dashed var(--honey)}
+
+/* letter */
+.letter{background:var(--paper);border-radius:6px 26px 26px 26px;padding:36px clamp(22px,5vw,52px);position:relative;box-shadow:0 14px 0 -6px var(--honey-lt),0 22px 30px -12px rgba(106,63,38,.35);
+  background-image:repeating-linear-gradient(transparent 0 33px,#f1ddd0 33px 34px);background-position:0 12px}
+.letter::before{content:"🧸";position:absolute;top:-24px;right:22px;font-size:2.6rem;transform:rotate(12deg)}
+.letter p{font-size:1.1rem;line-height:34px;min-height:34px}
+.letter .sign{font-family:var(--hand);font-size:2rem;line-height:1.2;margin-top:16px;color:var(--rose);text-align:right}
+.caret{display:inline-block;width:2px;height:1.1em;background:var(--cocoa);vertical-align:-3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* mistakes */
+.checks{display:grid;gap:12px}
+.check{display:flex;gap:14px;align-items:flex-start;background:var(--paper);padding:16px 18px;border-radius:18px;border:3px solid transparent;cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%;transition:border-color .2s,background .2s}
+.check:hover,.check:focus-visible{border-color:var(--honey);outline:none}
+.check .box{flex:none;width:30px;height:30px;border-radius:9px;border:3px solid var(--cocoa);display:grid;place-items:center;font-size:1rem;color:transparent;transition:all .2s;margin-top:2px}
+.check[aria-pressed="true"]{background:#fff;border-color:var(--rose)}
+.check[aria-pressed="true"] .box{background:var(--rose);border-color:var(--rose);color:#fff}
+.check b{display:block;font-weight:600}
+.sub{text-align:center;margin:-14px 0 24px;opacity:.8}
+.progress{text-align:center;margin-top:18px;font-family:var(--hand);font-size:1.7rem;color:var(--rose);min-height:2.2rem}
+
+/* promises */
+.promises{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.promise{background:var(--cocoa);color:var(--paper);padding:26px 20px 22px;border-radius:26px;text-align:center}
+.promise:nth-child(2n){background:var(--honey);color:var(--cocoa-dk)}
+.promise:nth-child(3n){transform:rotate(-1.5deg)}
+.promise .ic{font-size:2.2rem;display:block;margin-bottom:6px}
+.promise h3{font-family:var(--hand);font-size:1.9rem;line-height:1.1;margin-bottom:6px}
+.promise p{font-size:.98rem}
+
+/* memories */
+.stats{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.stat{background:var(--paper);border-radius:22px;padding:20px 26px;text-align:center;min-width:150px;border:3px dashed var(--honey)}
+.stat strong{display:block;font-family:var(--hand);font-size:3rem;line-height:1;color:var(--rose)}
+
+/* final ask */
+.ask{text-align:center;min-height:86vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.ask h2{font-size:clamp(2.6rem,9vw,4.6rem);margin-bottom:6px}
+.btns{position:relative;display:flex;gap:22px;justify-content:center;align-items:center;flex-wrap:wrap;min-height:90px;margin-top:10px}
+.btn{font:600 1.25rem var(--font);border:0;border-radius:999px;padding:16px 38px;cursor:pointer;transition:transform .2s}
+.btn.yes{background:var(--rose);color:#fff;box-shadow:0 6px 0 #b83a5b}
+.btn.yes:hover,.btn.yes:focus-visible{transform:scale(1.08);outline:3px solid var(--honey);outline-offset:3px}
+.btn.no{background:var(--paper);color:var(--cocoa);box-shadow:0 6px 0 var(--honey-lt)}
+.btn.no.free{position:fixed;z-index:20;transition:left .25s,top .25s}
+.reply{font-family:var(--hand);font-size:1.9rem;color:var(--cocoa);min-height:2.6rem}
+.win{display:none;flex-direction:column;align-items:center;gap:8px}
+.win.show{display:flex}
+.win h2{margin:0}
+footer{text-align:center;padding:30px 20px 50px;font-size:.95rem;opacity:.75}
+.confetti{position:fixed;top:-20px;z-index:50;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(112vh) rotate(540deg)}}
+</style>
+</head>
+<body>
+<div id="sky" aria-hidden="true"></div>
+<main>
+
+<section class="hero">
+  <button class="teddy" id="teddy" aria-label="Teddy ko hug do">
+    <i class="ear l"></i><i class="ear r"></i>
+    <i class="head">
+      <i class="eye l"></i><i class="eye r"></i>
+      <i class="tear l"></i><i class="tear r"></i>
+      <i class="cheek l"></i><i class="cheek r"></i>
+      <i class="muzzle"><i class="nose"></i><i class="mouth"></i></i>
+    </i>
+    <i class="body"><i class="belly"></i></i>
+    <i class="arm l"></i><i class="arm r"></i>
+    <i class="board">Sorry</i>
+  </button>
+  <span class="hugs" id="hugs">Teddy ko hug do 🤗</span>
+  <h1>Sorry, <span id="fname">Dost</span></h1>
+  <p>Teddy bhi udaas hai, aur main bhi. Ek minute de do, bas.</p>
+  <a class="scroll" href="#letter">Meri baat suno</a>
+</section>
+
+<section id="letter">
+  <h2>Ek chhota sa khat</h2>
+  <div class="letter" id="letterBox" aria-live="polite"></div>
+</section>
+
+<section id="mistakes">
+  <h2>Meri ghaltiyan</h2>
+  <p class="sub">Jo jo meri ghalti thi, us par tap karo. Main maanta hoon.</p>
+  <div class="checks" id="checks"></div>
+  <div class="progress" id="progress"></div>
+</section>
+
+<section id="promises">
+  <h2>Mere wade</h2>
+  <div class="promises" id="promiseList"></div>
+</section>
+
+<section id="memories">
+  <h2>Hamari dosti</h2>
+  <div class="stats" id="stats"></div>
+</section>
+
+<section class="ask" id="ask">
+  <div id="question">
+    <h2>Kya ab maaf kar doge?</h2>
+    <div class="reply" id="reply">Teddy ne dua ki hai 🧸</div>
+    <div class="btns" id="btns">
+      <button class="btn yes" id="yes">Haan, maaf kiya 💖</button>
+      <button class="btn no" id="no">Nahi</button>
+    </div>
+  </div>
+  <div class="win" id="win">
+    <h2>Shukriya, meri jaan! 🎉</h2>
+    <div class="teddy-mini" style="font-size:5rem">🧸💕</div>
+    <p style="max-width:34ch;font-size:1.15rem" id="winText"></p>
+  </div>
+</section>
+
+<footer>Dil se banaya hua, sirf tumhare liye 🧸</footer>
+</main>
+
+<script>
+/* ====== YAHAN APNI MARZI SE BADLO ====== */
+const CONFIG = {
+  friendName: "jnb",          // apni dost ka naam likho
+  myName: "Tumhara Dost",      // apna naam
+  letter: [
+    "Meri pyari dost,",
+    "Mujhe pata hai meri baat se tumhara dil dukha. Mera maqsad kabhi tumhein takleef dena nahi tha, lekin phir bhi hua, aur iska afsos mujhe andar tak hai.",
+    "Tumhari dosti meri zindagi ki sabse achi cheezon mein se hai. Tumhare bina baatein adhoori lagti hain aur din phika.",
+    "Main bahane nahi bana raha. Ghalti meri thi, aur main usse maan raha hoon.",
+    "Bas ek mauqa de do. Main sab theek kar dunga."
+  ],
+  mistakes: [
+    ["Tumhari baat theek se nahi suni", "Mujhe pehle samajhna chahiye tha, phir bolna chahiye tha."],
+    ["Lehja sahi nahi tha", "Jis tarah maine baat ki, wo tumhare liye hurt karne wali thi."],
+    ["Ab nhi hnsho ga ", "Ab nhi hanho ga maaf kardo."],
+    ["Sorry kehne mein der ki", "Meri ana ne mujhe roka, lekin tumhari dosti ana se badi hai."]
+  ],
+  promises: [
+    ["👂", "Pehle sununga", "Agli baar tumhari poori baat sun kar jawab dunga."],
+    ["🤝", "Sach bolunga", "Chahe kadwa ho, lekin izzat ke saath."],
+    ["🍫", "Treat meri taraf se", "Chai, chocolate ya jo tum kaho. Bill main dunga."],
+    ["🧸", "Hamesha saath", "Achay din mein bhi aur bure din mein bhi."]
+  ],
+  stats: [
+    ["∞", "Yaadein jo hamari hain"],
+    ["1000+", "Hansi ke lamhe"],
+    ["1", "Dost jise main khona nahi chahta"]
+  ],
+  winText: "Tumne mera din bana diya. Promise hai, ye dosti ab pehle se zyada mazboot hogi."
+};
+/* ======================================= */
+
+const $ = id => document.getElementById(id);
+document.title = "Sorry " + CONFIG.friendName + " 🧸";
+$("fname").textContent = CONFIG.friendName;
+
+/* floating hearts */
+const sky = $("sky"), icons = ["💖","🧸","🍯","💗","✨"];
+function spawn(){
+  const s = document.createElement("span");
+  s.textContent = icons[Math.floor(Math.random()*icons.length)];
+  s.style.left = Math.random()*100 + "vw";
+  s.style.fontSize = (14 + Math.random()*22) + "px";
+  s.style.animationDuration = (9 + Math.random()*9) + "s";
+  sky.appendChild(s);
+  setTimeout(() => s.remove(), 19000);
+}
+setInterval(spawn, 1100);
+for(let i=0;i<6;i++) setTimeout(spawn, i*250);
+
+/* teddy: eyes follow pointer, hugs */
+const teddy = $("teddy");
+const eyes = teddy.querySelectorAll(".eye");
+function look(x,y){
+  eyes.forEach(e => {
+    const r = e.getBoundingClientRect();
+    const dx = x - (r.left + r.width/2), dy = y - (r.top + r.height/2);
+    const a = Math.atan2(dy,dx), d = Math.min(4, Math.hypot(dx,dy)/40);
+    e.style.transform = `translate(${Math.cos(a)*d}px,${Math.sin(a)*d}px)`;
+  });
+}
+addEventListener("pointermove", e => look(e.clientX, e.clientY));
+let hugCount = 0;
+const hugMsgs = ["Teddy ko hug do 🤗","Aww, shukriya! 🥺","Teddy thoda khush hua 🧸","Itna pyaar? Teddy pighal gaya 💖","Ab to teddy ro nahi raha 😊"];
+teddy.addEventListener("click", () => {
+  hugCount++;
+  teddy.classList.remove("squish"); void teddy.offsetWidth; teddy.classList.add("squish");
+  $("hugs").textContent = hugCount + " hug" + (hugCount>1?"s":"") + " · " + hugMsgs[Math.min(hugCount, hugMsgs.length-1)];
+  for(let i=0;i<4;i++) spawn();
+});
+
+/* typed letter, starts when visible */
+const box = $("letterBox");
+let typed = false;
+function typeLetter(){
+  typed = true;
+  const paras = CONFIG.letter.map(t => { const p = document.createElement("p"); box.appendChild(p); return p; });
+  const sign = document.createElement("div");
+  sign.className = "sign"; box.appendChild(sign);
+  const caret = document.createElement("span"); caret.className = "caret";
+  let pi = 0, ci = 0;
+  (function tick(){
+    if(pi >= paras.length){
+      caret.remove(); sign.textContent = "— " + CONFIG.myName; return;
+    }
+    const txt = CONFIG.letter[pi];
+    paras[pi].textContent = txt.slice(0, ++ci);
+    paras[pi].appendChild(caret);
+    if(ci >= txt.length){ pi++; ci = 0; setTimeout(tick, 350); }
+    else setTimeout(tick, 22);
+  })();
+}
+new IntersectionObserver((en, ob) => {
+  if(en[0].isIntersecting && !typed){ typeLetter(); ob.disconnect(); }
+}, {threshold:.25}).observe(box);
+
+/* mistakes */
+const checks = $("checks");
+CONFIG.mistakes.forEach(([t,d]) => {
+  const b = document.createElement("button");
+  b.className = "check"; b.setAttribute("aria-pressed","false");
+  b.innerHTML = `<span class="box">✓</span><span><b>${t}</b>${d}</span>`;
+  b.onclick = () => {
+    b.setAttribute("aria-pressed", b.getAttribute("aria-pressed")==="true" ? "false":"true");
+    const n = checks.querySelectorAll('[aria-pressed="true"]').length, all = CONFIG.mistakes.length;
+    $("progress").textContent = n===0 ? "" : n<all ? n + " maan li, baaki bhi sahi hain..." : "Sab maan liya. Ab dil halka hua 🥹";
+  };
+  checks.appendChild(b);
+});
+
+/* promises & stats */
+$("promiseList").innerHTML = CONFIG.promises.map(([i,t,d]) =>
+  `<div class="promise"><span class="ic">${i}</span><h3>${t}</h3><p>${d}</p></div>`).join("");
+$("stats").innerHTML = CONFIG.stats.map(([n,l]) =>
+  `<div class="stat"><strong>${n}</strong>${l}</div>`).join("");
+
+/* final question: "Nahi" runs away */
+const no = $("no"), yes = $("yes");
+const noLines = ["Pakka?","Teddy ro raha hai 🥺","Ek aur baar soch lo","Please...","Dekho teddy ki aankhein","Button pakad ke dikhao 😜","Main mithai laaunga 🍰"];
+let tries = 0;
+function dodge(e){
+  if(e) e.preventDefault();
+  no.classList.add("free");
+  const w = innerWidth - no.offsetWidth - 20, h = innerHeight - no.offsetHeight - 20;
+  no.style.left = Math.max(10, Math.random()*w) + "px";
+  no.style.top = Math.max(10, Math.random()*h) + "px";
+  $("reply").textContent = noLines[tries++ % noLines.length];
+  yes.style.transform = "scale(" + Math.min(1.8, 1 + tries*0.08) + ")";
+}
+no.addEventListener("pointerenter", dodge);
+no.addEventListener("click", dodge);
+no.addEventListener("touchstart", dodge, {passive:false});
+
+yes.addEventListener("click", () => {
+  $("question").style.display = "none";
+  no.remove();
+  $("winText").textContent = CONFIG.winText;
+  $("win").classList.add("show");
+  teddy.classList.add("happy");
+  const cols = ["#E4577A","#E8A94F","#6A3F26","#FFC9D4","#F6CF8E"];
+  for(let i=0;i<110;i++){
+    const c = document.createElement("div");
+    c.className = "confetti";
+    c.textContent = Math.random()<.4 ? "💖" : "";
+    c.style.cssText += `left:${Math.random()*100}vw;width:${8+Math.random()*8}px;height:${c.textContent?"auto":(10+Math.random()*10)+"px"};background:${c.textContent?"none":cols[i%cols.length]};font-size:20px;border-radius:2px;animation-duration:${2.5+Math.random()*3}s;animation-delay:${Math.random()*1.2}s`;
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 7500);
+  }
+  $("win").scrollIntoView({behavior:"smooth", block:"center"});
+});
+</script>
+</body>
+</html>
